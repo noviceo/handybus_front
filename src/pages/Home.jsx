@@ -10,8 +10,10 @@ import axios from 'axios';
 import floating from '../img/floating.svg';
 
 const Home = () => {
-    const [sHowLogo, setShowLogo] = useState(true);
-    const [title, setTitle] = useState("");
+    const [floatingOpen, setFloatingOpen] = useState(false);
+    const handleFloating = () => {
+        setFloatingOpen(!floatingOpen);
+    }
     return(
         <div className="main-container">
             <div className="mobile-view">
@@ -94,6 +96,12 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                    <img className='floating-btn' src={floating} alt="floating button" onClick={handleFloating} />
+                    {floatingOpen && (
+                        <div className="overlay">
+                            {/* 여기에 추가 플로팅 버튼 구현 */}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
